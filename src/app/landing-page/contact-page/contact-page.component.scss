@@ -1,0 +1,22 @@
+section {
+    height: 100vh;
+    width: 100%;
+    background-color: rgb(34,49,140);
+    margin-top: 47px;
+}
+.description {
+    padding-inline: 70px;
+    width: 650px;
+}
+.left-side {
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        padding-top: 40px;
+        color: white;
+        padding-left: 100px;
+    >img {
+        width: 500px;
+        border-radius: 30px;
+    }
+}

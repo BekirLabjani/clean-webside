@@ -1,0 +1,87 @@
+<div class="form-container">
+  <form (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm">
+      <div class="form-input-container">
+          <div>
+              <input
+                  #name="ngModel" 
+                  [class.is-valid]="name.valid && name.touched" 
+                  [class.is-invalid]="!name.valid && name.touched"
+                  class="form-input"
+                  placeholder="Ihr Name"
+                  name="name"
+                  id="name"
+                  [(ngModel)]="contactData.name"
+                  required
+              />
+              <span *ngIf="!name.valid && name.touched" class="error-message">Name ist erforderlich</span>
+          </div>
+          <div>
+              <input
+                  #issue="ngModel" 
+                  [class.is-valid]="issue.valid && issue.touched" 
+                  [class.is-invalid]="!issue.valid && issue.touched"
+                  class="form-input"
+                  placeholder="Ihr Anliegen"
+                  name="issue"
+                  id="issue"
+                  [(ngModel)]="contactData.issue"
+                  required
+              />
+              <span *ngIf="!issue.valid && issue.touched" class="error-message">Anliegen ist erforderlich</span>
+          </div>
+          <div>
+              <input
+                  #email="ngModel" 
+                  [class.is-valid]="email.valid && email.touched" 
+                  [class.is-invalid]="!email.valid && email.touched"
+                  class="form-input"
+                  placeholder="Ihre E-Mail"
+                  name="email"
+                  id="email"
+                  [(ngModel)]="contactData.email"
+                  required
+                  email
+              />
+              <span *ngIf="!email.valid && email.touched" class="error-message">Gültige E-Mail-Adresse erforderlich</span>
+          </div>
+          <div>
+              <textarea
+                  #message="ngModel" 
+                  [class.is-valid]="message.valid && message.touched" 
+                  [class.is-invalid]="!message.valid && message.touched"
+                  placeholder="Ihre Nachricht"
+                  id="message"
+                  name="message"
+                  [(ngModel)]="contactData.message"
+                  minlength="5"
+                  required
+              ></textarea>
+              <span *ngIf="!message.valid && message.touched" class="error-message-textarea">Nachricht muss mindestens 5 Zeichen enthalten</span>
+          </div>
+      </div>
+      <div class="user-interaction-container">
+          <div>
+              <div class="custom-checkbox">
+                  <input 
+                      #checkbox="ngModel" 
+                      [ngModelOptions]="{standalone: true}" 
+                      type="checkbox" 
+                      id="checkbox"
+                      [(ngModel)]="isChecked">
+                  <label for="checkbox">
+                      <a target="_blank" class="purple-text">AGB akzeptieren</a>
+                  </label>
+              </div>
+          </div>
+          <div class="btn-container">
+              <button 
+                  type="submit" 
+                  [disabled]="!isChecked || contactForm.invalid"
+              >
+                  Senden
+              </button>
+              <span id="msgSuccess" class="mail-success">Erfolgreich gesendet!</span>
+          </div>
+      </div>
+  </form>
+</div>

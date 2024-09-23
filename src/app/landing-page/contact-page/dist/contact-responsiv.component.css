@@ -1,0 +1,6 @@
+@media (min-width: 1170px) and (max-width: 1270px) {
+  .description {
+    padding-inline: 70px;
+    width: 550px !important;
+  }
+}
